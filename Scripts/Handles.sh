@@ -27,12 +27,19 @@ if [ -d *"homeproxy"* ]; then
 fi
 
 #修改argon主题字体和颜色
-if [ -d *"luci-theme-argon"* ]; then
-	echo " " && cd ./luci-theme-argon/
+if [ -d "./argon" ]; then
+	echo "Fix Argon Theme..."
 
-	sed -i "s/primary '.*'/primary '#31a1a1'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
+	# 主色
+	find ./argon -type f | xargs sed -i 's/#5e72e4/#31a1a1/g'
 
-	cd $PKG_PATH && echo "theme-argon has been fixed!"
+	# 字体粗细
+	find ./argon -type f | xargs sed -i 's/font-weight:600/font-weight:normal/g'
+
+	# 毛玻璃透明度
+	find ./argon -type f | xargs sed -i 's/0.2/0.5/g'
+
+	echo "Done!"
 fi
 
 #修改aurora菜单式样
