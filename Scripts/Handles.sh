@@ -31,7 +31,7 @@ if [ -d "./argon" ]; then
 	echo "Fix Argon Theme..."
 
 	# 主色
-	find ./argon -type f | xargs sed -i 's/#5e72e4/#31a1a1/g'
+	find ./argon -type f | xargs sed -i 's/#31a1a1/g'
 
 	# 字体粗细
 	find ./argon -type f | xargs sed -i 's/font-weight:600/font-weight:normal/g'
